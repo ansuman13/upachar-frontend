@@ -1,0 +1,8 @@
+.Search-nav #search::placeholder{
+    color: black;
+    
+}
+
+.Search-nav #search{
+    background-color: white;
+}
