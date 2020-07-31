@@ -1,0 +1,8 @@
+.TopProducts-cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.TopProducts-cards div{
+    margin: 10px;
+} 

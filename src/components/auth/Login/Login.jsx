@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../../Navbar'
+import Navbar from '../../Navbar/Navbar'
 import './Login.css'
 
 export default class Login extends Component {
