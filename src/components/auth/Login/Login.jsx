@@ -18,16 +18,16 @@ export default class Login extends Component {
         return (
             <div>
                 <Navbar />
-                <div class="row">
-                    <form class="Login-form">
+                <div className="row">
+                    <form className="Login-form">
                         <div className="col s12">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">phone</i>
+                            <div className="input-field col s12">
+                                <i className="material-icons prefix">phone</i>
                                 <input id="phone" type="number"/>
                                 <label for="phone">Mobile Number</label>
                             </div>
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">verified_user</i>
+                            <div className="input-field col s12">
+                                <i className="material-icons prefix">verified_user</i>
                                 <input id="password" type="password"/>
                                 <label for="password">Password</label>
                             </div>

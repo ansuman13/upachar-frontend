@@ -1,0 +1,8 @@
+.ProductList-items{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ProductList-items card{
+    margin: 20px;
+}

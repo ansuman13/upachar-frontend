@@ -6,3 +6,9 @@
 .Search-nav #search{
     background-color: white;
 }
+
+.Search-nav{
+    margin: 10%;
+    width:80%;
+    margin: auto;
+}

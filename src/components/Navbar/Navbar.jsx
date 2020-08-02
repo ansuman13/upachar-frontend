@@ -10,9 +10,9 @@ class Navbar extends React.Component {
     render() {
         return (
             <nav>
-                <div class="nav-wrapper">
-                    <Link to="/" class="Navbar brand-logo"><img src={logo} alt="upachar logo" width='48px' /> Upachar</Link>
-                    <ul id="nav-mobile" class="right hide-on-small-and-down">
+                <div className="nav-wrapper">
+                    <Link to="/" className="Navbar brand-logo"><img src={logo} alt="upachar logo" width='48px' /> Upachar</Link>
+                    <ul id="nav-mobile" className="right hide-on-small-and-down">
                         <li><Link to="/login">Login</Link></li>
                         <li><Link to="/signup">Signup</Link></li>
                        
