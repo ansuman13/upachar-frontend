@@ -79,7 +79,7 @@ class ProductDetails extends Component {
             <div>
 
                 <Navbar />
-                <Search submit={ (query) => this.props.history.push(`/product/list/?q=${query}`)} />
+                <Search  />
                 <div className="container" >
                     <h2 className='ProductDetails-title'>{this.props.match.params.id} {this.state.data.name}</h2>
                     <div className="row">

@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import './search.css'
-import Button from '@material-ui/core/Button';
-
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import { withRouter } from 'react-router-dom';
 class Search extends Component {
     constructor(props) {
@@ -33,27 +29,28 @@ class Search extends Component {
     handleSubmit(e) {
         e.preventDefault()
         this.setState({ query: e.target.value })
-        this.props.submit(this.state.query)
+        this.props.history.push(`/product/list/?q=${this.state.query}`)
     }
+}
 
-    render() {
-        return (
-            <nav className='Search-nav'>
-                <div className="nav-wrapper">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="input-field">
-                            <input id="search" type="search" onChange={this.handleChange} placeholder='Search for Products and Medicine' required />
-                            <label className="label-icon" htmlFor="search">
-                                <i className="material-icons">search</i>
-                            </label>
-                            <i className="material-icons">close</i>
-                        </div>
-                    </form>
-                </div>
-            </nav>
-            
-        )
-    }
+render() {
+    return (
+        <nav className='Search-nav'>
+            <div className="nav-wrapper">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="input-field">
+                        <input id="search" type="search" onChange={this.handleChange} placeholder='Search for Products and Medicine' required />
+                        <label className="label-icon" htmlFor="search">
+                            <i className="material-icons">search</i>
+                        </label>
+                        <i className="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+
+    )
+}
 }
 
 
