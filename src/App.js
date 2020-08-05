@@ -8,19 +8,25 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import ProductList from './pages/ProductList/ProductList';
 
 function App() {
+  const getProduct = props => {
+    let id = props.match.params.name;
+    return <ProductDetails {...props} id={id} />;
+  };
+
   return (
     <div>
       <div className="App-routes">
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup}/>
+          <Route path='/signup' component={Signup} />
           <Route exact path='/top-products' component={TopProducts} />
-          <Route path='/product/list' component={ProductList}/>
-          <Route path='/products/details/:id' component={ProductDetails}/>
+          <Route path='/product/list' component={ProductList} />
+          <Route exact path='/products/details/:id' render={(props) => <ProductDetails key={Date.now()} {...props} id={props.match.params.id} />} />
+          <Route render={(props) => <h1>404, Page Not Found!</h1> }/>
         </Switch>
       </div>
-    </div>
+      </div>
   );
 }
 

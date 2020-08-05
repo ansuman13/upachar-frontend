@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function DisplayCard({ title,
+function DisplayCard({ title,
     UOM,
     price,
     image,
@@ -26,3 +26,6 @@ export default function DisplayCard({ title,
 
     )
 }
+
+
+export default withRouter(DisplayCard)

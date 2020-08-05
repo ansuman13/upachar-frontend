@@ -4,8 +4,9 @@ import qs from 'qs'
 import Search from '../../components/search/search'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import './ProductList.css'
+import { withRouter } from 'react-router-dom'
 
-export default class ProductList extends Component {
+class ProductList extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -91,3 +92,5 @@ export default class ProductList extends Component {
         )
     }
 }
+
+export default withRouter(ProductList)

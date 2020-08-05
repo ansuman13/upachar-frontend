@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import './search.css'
+import Button from '@material-ui/core/Button';
 
-export default class Search extends Component {
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { withRouter } from 'react-router-dom';
+class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            query:'',
+            query: '',
             data: [],
         }
-        
+
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -21,14 +25,14 @@ export default class Search extends Component {
             const query = e.target.value
             const response = await fetch(`${this.BASE_URL}api/v1/pharmacy/get-suggestions/?q=${e.target.value}`)
             const data = await response.json()
-            this.setState({data:data.success, query})
+            this.setState({ data: data.success, query })
             console.log(this.state.data)
         }
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault()
-        this.setState({query:e.target.value})
+        this.setState({ query: e.target.value })
         this.props.submit(this.state.query)
     }
 
@@ -47,6 +51,10 @@ export default class Search extends Component {
                     </form>
                 </div>
             </nav>
+            
         )
     }
 }
+
+
+export default withRouter(Search)
