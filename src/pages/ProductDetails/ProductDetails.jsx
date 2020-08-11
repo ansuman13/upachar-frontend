@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../../components/Navbar/Navbar'
 import Parser from 'html-react-parser';
 import './ProductDetails.css'
-import Search from '../search/search';
-import ProductCard from '../ProductCard/ProductCard'
+import Search from '../../components/search/search';
+import ProductCard from '../../components/ProductCard/ProductCard'
 import { v4 as uuid4 } from 'uuid'
 import { withRouter } from 'react-router-dom';
 
@@ -34,13 +34,6 @@ class ProductDetails extends Component {
         this.setState({ data: data.data, loading: false, recommendedData: recommendedData.data })
     }
 
-    componentDidUpdate(prevProps) {
-        console.log('component did update')
-        if (prevProps.match.params.id !== this.props.match.params.id) {
-            console.log(prevProps.match.params.id, this.props.match.params.id)
-            this.setState({ id: this.props.match.params.id })
-        }
-    }
 
     getImages = () => {
         return this.state.data.images.map(

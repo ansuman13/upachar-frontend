@@ -1,0 +1,93 @@
+{
+  "success": [
+    {
+      "filters": {
+        "prescription_required": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": []
+        },
+        "UOM": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "Piece",
+              "doc_count": 2
+            }
+          ]
+        },
+        "therapeutic_class": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": []
+        },
+        "categories": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "Personal Care",
+              "doc_count": 2
+            }
+          ]
+        },
+        "tags": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "Mask",
+              "doc_count": 2
+            },
+            {
+              "key": "Masks",
+              "doc_count": 1
+            }
+          ]
+        },
+        "manufacturer": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "General",
+              "doc_count": 1
+            },
+            {
+              "key": "Mediblessings",
+              "doc_count": 1
+            }
+          ]
+        }
+      },
+      "items": {
+        "0": {
+          "index": "pharma_product_index_dev",
+          "id": 296,
+          "name": "Surgical Paper Mask",
+          "UOM": "Piece",
+          "price": 1000,
+          "thumbnails": [
+            "/media/product/images/61bu1ugqPL._AC_SX425_.jpg"
+          ],
+          "detail_page": "/api/v1/pharmacy/products/296",
+          "manufacturer": "General"
+        },
+        "1": {
+          "index": "pharma_product_index_dev",
+          "id": 226,
+          "name": "KN95 Mask",
+          "UOM": "Piece",
+          "price": 400,
+          "thumbnails": [
+            "/media/product/images/KN95_Masks.jpg"
+          ],
+          "detail_page": "/api/v1/pharmacy/products/226",
+          "manufacturer": "Mediblessings"
+        }
+      },
+      "total_hits": 2
+    }
+  ]
+}

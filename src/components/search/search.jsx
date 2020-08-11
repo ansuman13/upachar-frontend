@@ -16,14 +16,19 @@ class Search extends Component {
     BASE_URL = 'https://upachar.com.np/'
 
     async handleChange(e) {
+        const query = e.target.value
         if (e.target.value.length > 3) {
             console.log(e.target.value)
-            const query = e.target.value
             const response = await fetch(`${this.BASE_URL}api/v1/pharmacy/get-suggestions/?q=${e.target.value}`)
             const data = await response.json()
             this.setState({ data: data.success, query })
             console.log(this.state.data)
         }
+        else{
+            this.setState({ query })
+
+        }
+
     }
 
     handleSubmit(e) {
@@ -31,7 +36,7 @@ class Search extends Component {
         this.setState({ query: e.target.value })
         this.props.history.push(`/product/list/?q=${this.state.query}`)
     }
-}
+
 
 render() {
     return (
@@ -39,7 +44,7 @@ render() {
             <div className="nav-wrapper">
                 <form onSubmit={this.handleSubmit}>
                     <div className="input-field">
-                        <input id="search" type="search" onChange={this.handleChange} placeholder='Search for Products and Medicine' required />
+                        <input id="search" type="search" onChange={this.handleChange} value={this.state.query} placeholder='Search for Products and Medicine' required />
                         <label className="label-icon" htmlFor="search">
                             <i className="material-icons">search</i>
                         </label>

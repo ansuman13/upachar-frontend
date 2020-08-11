@@ -12,7 +12,6 @@ class ProductList extends Component {
         this.state = {
             items: [],
             filters: [],
-            query: '',
             loading: true
         }
     }
@@ -21,11 +20,17 @@ class ProductList extends Component {
     async componentDidMount() {
         const query = qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).q
         const url = this.BASE_URL + `/api/v1/pharmacy/get-suggestions/?q=${query}`
-        this.setState({ query })
         const response = await fetch(url)
         const data = await response.json()
-        this.setState({ items: data.success[0].items, filters: data.success[0].filters, loading: false })
-        console.log(response)
+        console.log('filters')
+        let filters = data.success[0].filters
+        const rawFilters = []
+        for (let item in filters) {
+            const itemBucket = filters[item].buckets
+            const itemName = { [item]: itemBucket }
+            rawFilters.push(itemName)
+        }
+        this.setState({ items: data.success[0].items, filters: rawFilters, loading: false })
     }
 
     showProductList = (query) => {
@@ -34,7 +39,6 @@ class ProductList extends Component {
 
     getItems = () => {
         const items = Object.values(this.state.items)
-        console.log(items)
         return items.map((item) => {
             if (item.index === 'pharma_product_index_dev') {
                 return <ProductCard
@@ -52,19 +56,19 @@ class ProductList extends Component {
     }
 
     showFilters = () => {
-
-        const keys = Object.keys(this.state.filters)
-        return keys.map((item) =>
-            <p>
-                <label>
-                    <input type="checkbox" />
-                    <span>{item}</span>
-                </label>
+        console.log('filters in showFilters... ', this.state.filters)
+        return this.state.filters.map((item) =>
+            <p key={Object.keys(item)}>
+                    <p>{item[Object.keys(item)].length>0 && Object.keys(item)}</p>
+                    { item[Object.keys(item)].length>0 && item[Object.keys(item)].map((bucketItem) => 
+                    <label>
+                        <input type="checkbox" />
+                        <span>{bucketItem['key']}({bucketItem['doc_count']})</span> 
+                    </label>
+                    )}
             </p>
         )
 
-        console.log('filter objects', Object.values(this.state.filters))
-        // this.state.filters.map((item)=><select>item</select>)
     }
 
 
