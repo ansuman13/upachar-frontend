@@ -1,14 +1,7 @@
-.Search-nav #search::placeholder{
-    color: black;
-    
-}
 
-.Search-nav #search{
-    background-color: white;
-}
+.Search-search-bar{
+    margin-top: 10px !important;
+    margin: 2vh !important;
+    width:90%;
 
-.Search-nav{
-    margin: 10%;
-    width:80%;
-    margin: auto;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './search.css'
 import { withRouter } from 'react-router-dom';
+import { TextField, InputAdornment, IconButton, Button } from '@material-ui/core';
 class Search extends Component {
     constructor(props) {
         super(props)
@@ -40,19 +41,29 @@ class Search extends Component {
 
 render() {
     return (
-        <nav className='Search-nav'>
-            <div className="nav-wrapper">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="input-field">
-                        <input id="search" type="search" onChange={this.handleChange} value={this.state.query} placeholder='Search for Products and Medicine' required />
-                        <label className="label-icon" htmlFor="search">
-                            <i className="material-icons">search</i>
-                        </label>
-                        <i className="material-icons">close</i>
-                    </div>
-                </form>
-            </div>
-        </nav>
+        <form className="Search-search-bar" onSubmit={this.handleSubmit}>
+            <TextField mt={3}
+                id="query"
+                name="query"
+                label="Search for Medicine and Health Products"
+                required
+                fullWidth
+                variant="outlined"
+                value={this.state.query}
+                onChange={this.handleChange}
+                InputProps={{
+                    endAdornment: (
+                      <InputAdornment position='end'>
+                        <Button 
+                        variant="contained"
+                        type="submit" >Search
+                        </Button>
+                      </InputAdornment>
+                    ),
+                  }}
+             />
+
+        </form>
 
     )
 }

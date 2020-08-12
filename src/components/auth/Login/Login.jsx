@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../../Navbar/Navbar'
 import './Login.css'
-import { Container, CssBaseline, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link } from '@material-ui/core'
+import { Container, CssBaseline, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link, Box } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 
@@ -28,6 +28,8 @@ class Login extends React.Component {
         }
 
         return (
+        <>
+            <Navbar/>
             <Container component="main" maxWidth="xs" >
                 <CssBaseline />
                 <div className="paper" style={loginInlineStyles.paper}>
@@ -74,8 +76,8 @@ class Login extends React.Component {
                         >Sign In
                     </Button>
 
-                        <Grid container>
-                            <Grid item xs>
+                        <Grid container >
+                            <Grid item xs mt={1}>
                                 <Link href="#" variant="body2">Forget Password</Link>
                             </Grid>
                             <Grid item>
@@ -91,8 +93,13 @@ class Login extends React.Component {
 
                     </form>
                 </div>
-
+                <Box mt={8}>
+                    <Typography variant="body2" align="center">
+                        Copyright ⓒ Upachar.com.np {new Date().getFullYear()}
+                    </Typography>
+                </Box>
             </Container>
+        </>
         )
     }
 
