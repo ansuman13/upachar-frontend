@@ -48,6 +48,7 @@ render() {
                 label="Search for Medicine and Health Products"
                 required
                 fullWidth
+                autoFocus
                 variant="outlined"
                 value={this.state.query}
                 onChange={this.handleChange}

@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../../logo.png'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -22,14 +22,16 @@ class Navbar extends React.Component {
             <div>
                 <AppBar position="static">
                     <Toolbar>
-                            <img src={logo} width='48px' height='48px'/>
+                        <img src={logo} width='48px' height='48px' />
                         {/* <IconButton edge="start" color="inherit" aria-label="menu">
                             <MenuIcon />
                         </IconButton> */}
                         <Typography variant="h6">
-                            Upachar
-                         </Typography>
-                         
+                            <NavLink to="/" style={{'color':'white'}}>
+                                <Typography variant="heading1">Upachar </Typography>
+                            </NavLink>
+                        </Typography>
+
                     </Toolbar>
                 </AppBar>
             </div>

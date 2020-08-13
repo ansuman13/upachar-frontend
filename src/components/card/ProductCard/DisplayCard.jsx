@@ -2,11 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
 import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
+import './DisplayCard.css'
 
 function DisplayCard(props) {
     return (
-        <Card style={{'flex-basis': '100%'}}>
-            <img src={props.image} width="248px" height="248px" />
+        <Card style={{'flex-basis': '100%'}} elevation={2}>
+            <div className="image-container">
+                <img src={props.image} className="DisplayCard-product-image"/>
+            </div>
             <CardContent>
                 <Typography variant="subtitle2" component="p">
                     <b>{props.title}</b>

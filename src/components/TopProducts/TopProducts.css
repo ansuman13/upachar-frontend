@@ -5,4 +5,9 @@
 
 .TopProducts-cards div{
     margin: 10px;
-} 
+}
+
+.TopProducts-product-list{
+    width: 90%;
+    margin: auto;
+}

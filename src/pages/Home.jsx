@@ -3,6 +3,7 @@ import './Home.css'
 import Navbar from '../components/Navbar/Navbar'
 import Search from '../components/search/search'
 import TopProducts from '../components/TopProducts/TopProducts'
+import TopMedicines from '../components/TopMedicines/TopMedicines'
 
 const Home = (props) => {
 
@@ -19,8 +20,7 @@ const Home = (props) => {
         <Search submit={showProductList} />
       </div>
       <TopProducts url='api/v1/pharmacy/hitcount/products?top=5' />
-      {/* <TopMeicines/> */}
-
+      <TopMedicines />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import Search from '../../components/search/search'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import './ProductList.css'
 import { withRouter } from 'react-router-dom'
+import DisplayCard from '../../components/card/ProductCard/DisplayCard'
 
 class ProductList extends Component {
     constructor(props) {
@@ -41,11 +42,11 @@ class ProductList extends Component {
         const items = Object.values(this.state.items)
         return items.map((item) => {
             if (item.index === 'pharma_product_index_dev') {
-                return <ProductCard
+                return <DisplayCard
                     title={item.name}
                     UOM={item.UOM}
                     price={item.price}
-                    image={item.thumbnails[0]}
+                    image={this.BASE_URL + item.thumbnails[0]}
                     url={`/products/details/${item.id}`}
                     manufacturer={item.manufacturer}
                 />
@@ -59,13 +60,13 @@ class ProductList extends Component {
         console.log('filters in showFilters... ', this.state.filters)
         return this.state.filters.map((item) =>
             <p key={Object.keys(item)}>
-                    <p>{item[Object.keys(item)].length>0 && Object.keys(item)}</p>
-                    { item[Object.keys(item)].length>0 && item[Object.keys(item)].map((bucketItem) => 
+                <p>{item[Object.keys(item)].length > 0 && Object.keys(item)}</p>
+                {item[Object.keys(item)].length > 0 && item[Object.keys(item)].map((bucketItem) =>
                     <label>
                         <input type="checkbox" />
-                        <span>{bucketItem['key']}({bucketItem['doc_count']})</span> 
+                        <span>{bucketItem['key']}({bucketItem['doc_count']})</span>
                     </label>
-                    )}
+                )}
             </p>
         )
 
@@ -79,9 +80,10 @@ class ProductList extends Component {
                 <Search submit={this.showProductList} />
                 <div className='row'>
                     <div className="col sm12 md3">
-                        {this.state.loading ? <p>Loading...</p> :
+                        {/* Filters_here */}
+                        {/* {this.state.loading ? <p>Loading...</p> :
                             <div className="ProductList-filters">filters;{this.showFilters()}</div>
-                        }
+                        } */}
                     </div>
                     <div className="col sm12 md8 container">
                         {this.state.loading ? <p>Loading...</p> :
