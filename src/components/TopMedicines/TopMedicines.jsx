@@ -3,6 +3,7 @@ import MedicineCard from '../card/MedicineCard/MedicineCard'
 import { v4 as uuidv4 } from 'uuid'
 import { Typography } from '@material-ui/core';
 import './TopMedicines.css'
+import Skeleton from '@material-ui/lab/Skeleton';
 
 class TopMedicines extends Component {
 
@@ -13,7 +14,7 @@ class TopMedicines extends Component {
     BASE_URL = 'https://upachar.com.np/'
 
     async componentDidMount() {
-        const url = this.BASE_URL + 'api/v1/pharmacy/hitcount/medicines?top=5'
+        const url = this.BASE_URL + `api/v1/pharmacy/hitcount/medicines?top=${this.props.limit}`
         const url_response = await fetch(url)
         const response = await url_response.json()
         this.setState({ data: response.data })
@@ -25,11 +26,17 @@ class TopMedicines extends Component {
         return (
             <div className="TopMedicines-medicine-list">
                 <Typography variant="h4">
-                    Top Medicines
+                    Seasonal Medicines
                 </Typography>
-                
                 {this.state.loading ?
-                    <div>Loading...</div> :
+                    <div className="TopMedicines-loading-skeleton">
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        
+                    </div> :
                     <div className="TopMedicine-cards">
                         {this.state.data.map((item) => <MedicineCard key={uuidv4()}
                             url={'/medicine/details/' + item.id}

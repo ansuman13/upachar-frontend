@@ -13,20 +13,21 @@ const MedicineCard = (props) =>{
     // compositions={item.compositions}
     // image={`${this.BASE_URL}/${item.thumbnails[0]}`} />
     return(
-        <Card elevation={3} style={{'flex-basis': '100%'}} >
+        <Card elevation={3} style={{'flexBasis': '100%'}} >
             <div className="image-container">
                 <img src={props.image} className="DisplayCard-product-image"/>
             </div>
         <CardContent>
-            <Typography variant="subtitle2" component="p">
+            <Typography variant="body1" component="p">
                 <b>{props.title}</b>
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="subtitle2">
                 {props.manufacturer}
             </Typography>
-            <Typography variant="outline">
+            <Typography variant="overline" component="p">
                 NPR. {props.price} per {props.UOM}
             </Typography> 
+            <Link to={props.url}>View Details</Link>
         </CardContent>
         </Card>
     )

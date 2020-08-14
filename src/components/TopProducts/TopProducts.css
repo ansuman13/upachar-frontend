@@ -3,11 +3,19 @@
     justify-content: space-evenly;
 }
 
-.TopProducts-cards div{
+.TopProducts-cards > div{
     margin: 10px;
 }
 
 .TopProducts-product-list{
-    width: 90%;
-    margin: auto;
+    margin-bottom: 5vh;
+}
+
+.TopProducts-loading-skeleton{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.TopProducts-loading-skeleton>span{
+    margin: 10px;
 }

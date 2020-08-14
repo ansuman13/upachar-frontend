@@ -6,7 +6,7 @@ import './DisplayCard.css'
 
 function DisplayCard(props) {
     return (
-        <Card style={{'flex-basis': '100%'}} elevation={2}>
+        <Card style={{'flexBasis': '100%'}} elevation={2}>
             <div className="image-container">
                 <img src={props.image} className="DisplayCard-product-image"/>
             </div>

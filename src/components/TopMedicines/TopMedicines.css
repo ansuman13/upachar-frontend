@@ -1,6 +1,18 @@
-.TopMedicine-cards{
-    display: flex;
-    width: 90%;
-    margin: auto;
-
+.TopMedicine-cards {
+  display: flex;
+  margin: auto;
 }
+
+.TopMedicine-cards > div {
+  margin: 10px;
+}
+
+.TopMedicines-loading-skeleton{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.TopMedicines-loading-skeleton>span{
+    margin: 10px;
+}
+

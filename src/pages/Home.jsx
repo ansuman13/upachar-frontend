@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar/Navbar'
 import Search from '../components/search/search'
 import TopProducts from '../components/TopProducts/TopProducts'
 import TopMedicines from '../components/TopMedicines/TopMedicines'
+import { Container } from '@material-ui/core'
+import Asynchronous from '../components/autocomplete/Asynchronous'
 
 const Home = (props) => {
 
@@ -16,11 +18,13 @@ const Home = (props) => {
   return (
     <div>
       <Navbar />
+      <Container>
       <div className="Home-search">
         <Search submit={showProductList} />
       </div>
-      <TopProducts url='api/v1/pharmacy/hitcount/products?top=5' />
-      <TopMedicines />
+        <TopProducts limit={5} />
+        <TopMedicines limit={5} />
+      </Container>
     </div>
   )
 }

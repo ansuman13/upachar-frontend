@@ -1,9 +1,14 @@
 .DisplayCard-product-image {
     max-width: 248px;
     max-height: 248px;
-    min-height: 248px;
     min-width: 248px;
+    min-height: 248px;
     height: auto;
     width: auto;
-    margin: auto;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
 }

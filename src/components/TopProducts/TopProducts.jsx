@@ -3,6 +3,7 @@ import DisplayCard from '../card/ProductCard/DisplayCard'
 import './TopProducts.css'
 import { v4 as uuidv4 } from 'uuid'
 import { Typography } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 export default class TopProducts extends Component {
 
@@ -13,7 +14,8 @@ export default class TopProducts extends Component {
     BASE_URL = 'https://upachar.com.np/'
 
     async componentDidMount() {
-        const url = this.BASE_URL + this.props.url
+        const url_2 = `api/v1/pharmacy/hitcount/products?top=${this.props.limit}`
+        const url = this.BASE_URL + url_2
         const url_response = await fetch(url)
         const response = await url_response.json()
         this.setState({ data: response.data })
@@ -24,10 +26,17 @@ export default class TopProducts extends Component {
         return (
             <div className="TopProducts-product-list">
                 <Typography variant="h4">
-                    Top Products
+                    Popular Products
                 </Typography>
                 {this.state.loading ?
-                    <div>Loading...</div> :
+                    <div className="TopProducts-loading-skeleton">
+                       <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} />
+                        <Skeleton variant="rect" animation="wave" width={248} height={248} /> 
+                    </div>
+                    :
                     <div className="TopProducts-cards">
                         {this.state.data.map((item) => <DisplayCard key={uuidv4()}
                             url={'/products/details/' + item.id}
