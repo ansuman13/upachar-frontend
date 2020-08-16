@@ -1,6 +1,6 @@
 .TopMedicine-cards {
   display: flex;
-  margin: auto;
+  justify-content: space-evenly;
 }
 
 .TopMedicine-cards > div {

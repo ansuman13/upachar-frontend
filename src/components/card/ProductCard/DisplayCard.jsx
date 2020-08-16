@@ -1,25 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
-import { Card, CardMedia, CardContent, Typography } from '@material-ui/core';
+import { Card, CardMedia, CardContent, Typography, Grid } from '@material-ui/core';
 import './DisplayCard.css'
 
 function DisplayCard(props) {
     return (
-        <Card style={{'flexBasis': '100%'}} elevation={2}>
-            <div className="image-container">
-                <img src={props.image} className="DisplayCard-product-image"/>
-            </div>
-            <CardContent>
-                <Typography variant="subtitle2" component="p">
-                    <b>{props.title}</b>
-                </Typography>
-                <Typography variant="overline" component="p">
-                    From NPR. {props.min_price}
-                </Typography>
-                <Link to={props.url}>View Details</Link>
-            </CardContent>
-        </Card>
+        <Grid item xs={12} md={3} lg={2}>
+            <Card style={{ 'flexBasis': '100%','height':'100%' }} elevation={2}>
+                <div className="image-container">
+                    <img src={props.image} className="DisplayCard-product-image" />
+                </div>
+                <CardContent>
+                    <Typography variant="subtitle2" component="p">
+                        <b>{props.title}</b>
+                    </Typography>
+                    <Typography variant="overline" component="p">
+                        From NPR. {props.min_price}
+                    </Typography>
+                    <Link to={props.url}>View Details</Link>
+                </CardContent>
+            </Card>
+        </Grid>
     )
 }
 
