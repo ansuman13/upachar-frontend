@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Navbar from '../components/Navbar/Navbar'
 import Search from '../components/search/search'
 import TopProducts from '../components/TopProducts/TopProducts'
 import TopMedicines from '../components/TopMedicines/TopMedicines'
 import { Container } from '@material-ui/core'
-import Asynchronous from '../components/autocomplete/Asynchronous'
+import Carousel from 'react-material-ui-carousel'
+import HomeCarousel from '../components/Carousel/HomeCarousel'
 
 const Home = (props) => {
 
@@ -22,6 +23,8 @@ const Home = (props) => {
       <div className="Home-search">
         <Search submit={showProductList} />
       </div>
+      <HomeCarousel/>
+
         <TopProducts limit={5} />
         <TopMedicines limit={5} />
       </Container>

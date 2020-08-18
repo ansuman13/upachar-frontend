@@ -1,8 +1,50 @@
-.ProductList-items{
-    display: flex;
-    flex-wrap: wrap;
+.ProductList-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  flex-direction: row;
 }
 
-.ProductList-items card{
-    margin: 20px;
+.ProductList-items-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.ProductList-items-card div {
+  margin-right: 3vh;
+  width: 250px;
+}
+
+
+.ProductList-filters {
+  margin: 10px 10px 10px 10px;
+  padding: 0 20px 0 20px;
+}
+
+.ProductList-searchbar {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+  padding: 2%;
+}
+
+.ProductList-Skeletons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.ProductList-Skeletons span{
+  margin: 20px;
+}
+.ProductList-pagination{
+  width: 100%;
+  display: flex
+}
+.ProductList-items .pagination {
+  margin: auto;
+  margin-top: 0;
 }

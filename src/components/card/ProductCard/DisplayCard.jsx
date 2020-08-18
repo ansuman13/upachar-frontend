@@ -6,8 +6,8 @@ import './DisplayCard.css'
 
 function DisplayCard(props) {
     return (
-        <Grid item xs={12} md={3} lg={2}>
-            <Card style={{ 'flexBasis': '100%','height':'100%' }} elevation={2}>
+        <div>
+            <Card style={{ 'flexBasis': '100%', 'height': '100%' }} elevation={2}>
                 <div className="image-container">
                     <img src={props.image} className="DisplayCard-product-image" />
                 </div>
@@ -16,12 +16,12 @@ function DisplayCard(props) {
                         <b>{props.title}</b>
                     </Typography>
                     <Typography variant="overline" component="p">
-                        From NPR. {props.min_price}
+                        From NPR. {props.price}
                     </Typography>
                     <Link to={props.url}>View Details</Link>
                 </CardContent>
             </Card>
-        </Grid>
+        </div>
     )
 }
 

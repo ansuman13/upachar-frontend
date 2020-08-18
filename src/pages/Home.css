@@ -3,3 +3,8 @@
     width: 80%;
     padding: 2%;
 }
+
+.Home-carousel{
+    display: flex;
+    justify-content: center;
+}

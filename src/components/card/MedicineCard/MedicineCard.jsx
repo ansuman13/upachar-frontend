@@ -5,15 +5,9 @@ import './MedicineCard.css'
 
 const MedicineCard = (props) => {
 
-    // url={'/medicine/details/' + item.id}
-    // title={item.name}
-    // manufacturer={item.manufacturer}
-    // min_price={item.price}
-    // UOM={item.UOM}
-    // compositions={item.compositions}
-    // image={`${this.BASE_URL}/${item.thumbnails[0]}`} />
+  
     return (
-        <Grid item xs={12} md={3} lg={2}>
+        <div>
             <Card style={{ 'flexBasis': '100%', 'height':'100%'}} elevation={2} >
                 <div className="MedicineCard-image-container">
                     <img src={props.image} className="DisplayCard-medicine-image" />
@@ -31,7 +25,7 @@ const MedicineCard = (props) => {
                     <Link to={props.url}>View Details</Link>
                 </CardContent>
             </Card>
-        </Grid>
+        </div>
     )
 }
 

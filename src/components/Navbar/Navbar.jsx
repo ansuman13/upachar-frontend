@@ -28,7 +28,7 @@ class Navbar extends React.Component {
                         </IconButton> */}
                         <Typography variant="h6">
                             <NavLink to="/" style={{'color':'white'}}>
-                                <Typography variant="heading1">Upachar </Typography>
+                                <Typography variant="inherit">Upachar </Typography>
                             </NavLink>
                         </Typography>
 
