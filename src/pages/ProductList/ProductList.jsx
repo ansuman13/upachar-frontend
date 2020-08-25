@@ -186,10 +186,10 @@ class ProductList extends Component {
                             <Skeleton width="60%" />
                         </Box> :
                             <div className="ProductList-filters-list">
-                                <Typography id="range-slider" gutterBottom>
+                                {/* <Typography id="range-slider" gutterBottom>
                                     Price Between (NPR)
-                                </Typography>
-                                <Slider
+                                </Typography> */}
+                                {/* <Slider
                                     value={this.state.price}
                                     style={{
                                         'width': '80%',
@@ -203,7 +203,7 @@ class ProductList extends Component {
                                     valueLabelDisplay="auto"
                                     aria-labelledby="range-slider"
                                     getAriaValueText={this.valuetext}
-                                />
+                                /> */}
                                 {this.state.filters && this.showFilters()}
                             </div>
                         }

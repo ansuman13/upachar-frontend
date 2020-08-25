@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Search from '../components/search/search'
 import TopProducts from '../components/TopProducts/TopProducts'
 import TopMedicines from '../components/TopMedicines/TopMedicines'
-import { Container } from '@material-ui/core'
+import { Container, Grid } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
 import HomeCarousel from '../components/Carousel/HomeCarousel'
 
@@ -20,10 +20,21 @@ const Home = (props) => {
     <div>
       <Navbar />
       <Container>
-      <div className="Home-search">
-        <Search submit={showProductList} />
-      </div>
-      <HomeCarousel/>
+      
+      <Grid container className="Home-search">
+        <Grid item xs={12}>
+          <Search submit={showProductList} />
+        </Grid>
+      </Grid>
+
+      <Grid container className="Home-search">
+        <Grid item xs={12}>
+          <HomeCarousel/>
+        </Grid>
+      </Grid>
+      
+
+
 
         <TopProducts limit={5} />
         <TopMedicines limit={5} />

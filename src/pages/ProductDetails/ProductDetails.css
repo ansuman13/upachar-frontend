@@ -1,11 +1,17 @@
-.ProductDetail-variants div ul{
-    border:2px solid red;
-    display:flex;
-    padding: 10px;
-    margin: 10px;
+.ProductDetail-variants div ul {
+  border: 2px solid red;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
 }
 
-.ProductDetails-see-also{
-    display: flex;
-    flex-wrap: wrap;
+.ProductDetails-see-also {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Product-details-searchbar {
+    margin: auto;
+    width: 80%;
+    padding: 2%;
 }

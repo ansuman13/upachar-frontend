@@ -6,6 +6,7 @@ import Search from '../../components/search/search';
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { v4 as uuid4 } from 'uuid'
 import { withRouter } from 'react-router-dom';
+import { Container, Grid } from '@material-ui/core';
 
 class ProductDetails extends Component {
     constructor(props) {
@@ -70,27 +71,48 @@ class ProductDetails extends Component {
         }
         return (
             <div>
-
                 <Navbar />
-                <Search  />
-                <div className="container" >
-                    <h2 className='ProductDetails-title'>{this.props.match.params.id} {this.state.data.name}</h2>
-                    <div className="row">
-                        <div className="col sm12 md6">
-                            <div className='ProductDetails-product-images'>{this.getImages()}</div>
-                        </div>
-
-                        <div className="col sm12 md3">
-                            <div className='ProductDetail-variants'>{this.getVariants()}</div>
-                        </div>
-                    </div>
-                    <div className='ProductDetails-details'>{Parser(this.state.data.details)}</div>
-                    <h4>Recommendations:</h4>
-                    <div className="ProductDetails-see-also">
-                        {this.getRecommendedProducts()}
-                    </div>
+                <div className="Product-details-searchbar">
+                    <Search />
                 </div>
-            </div>
+
+                <Container>
+                    <Grid container>
+                        <Grid item md={12} xs={12}>
+                            <h2 className='ProductDetails-title'>{this.props.match.params.id} {this.state.data.name}</h2>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+                        <Grid item className="ProductDetails-image" sm={12} md={6}>
+                            <div className='ProductDetails-product-images'>{this.getImages()}</div>
+                        </Grid>
+
+                        <Grid item className="ProductDetails-variants"
+                            direction="column"
+                            md={3}>
+                            <div className='ProductDetail-variants'>{this.getVariants()}</div>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+                        <Grid item sm={12}>
+                            <div className='ProductDetails-details'>{Parser(this.state.data.details)}</div>
+                        </Grid>
+                    </Grid>
+
+                    <Grid container>
+
+                        <h4>Recommendations:</h4>
+                        <Grid item xs={12}>
+                            <div className="ProductDetails-see-also">
+                                {this.getRecommendedProducts()}
+                            </div>
+                        </Grid>
+                    </Grid>
+
+                </Container>
+            </div >
         )
     }
 }
