@@ -6,7 +6,7 @@ import Search from '../../components/search/search';
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { v4 as uuid4 } from 'uuid'
 import { withRouter } from 'react-router-dom';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, CircularProgress } from '@material-ui/core';
 
 class ProductDetails extends Component {
     constructor(props) {
@@ -67,7 +67,13 @@ class ProductDetails extends Component {
     render() {
         if (this.state.loading) {
             { this.fetchData() }
-            return <h1>Loading...</h1>
+            return <div class="ProductDetails-progress-container">
+                <div class="ProductDetails-progress-center">
+                    <CircularProgress />
+                </div>
+            </div>
+               
+
         }
         return (
             <div>

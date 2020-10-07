@@ -4,11 +4,8 @@
   width: 90%;
 }
 @media only screen and (max-width: 600px) {
-  .MuiInputAdornment-root .MuiInputAdornment-positionEnd {
+  .MuiInputAdornment-root.MuiInputAdornment-positionEnd button{
     display: none;
   }
 }
 
-@media (max-width: 767px) {
-  text-align : center;
-}

@@ -8,10 +8,10 @@ import ProductDetails from './pages/ProductDetails/ProductDetails';
 import ProductList from './pages/ProductList/ProductList';
 
 function App() {
-  const getProduct = props => {
-    let id = props.match.params.name;
-    return <ProductDetails {...props} id={id} />;
-  };
+  // const getProduct = props => {
+  //   let id = props.match.params.name;
+  //   return <ProductDetails {...props} id={id} />;
+  // };
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Navbar from '../../Navbar/Navbar'
 import './Login.css'
 import { Container, CssBaseline, Avatar, Typography, TextField, FormControlLabel, Checkbox, Button, Grid, Link, Box } from '@material-ui/core'

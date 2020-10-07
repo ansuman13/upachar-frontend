@@ -4,25 +4,34 @@ import './TopProducts.css'
 import { v4 as uuidv4 } from 'uuid'
 import { Typography } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
+import { connect } from 'react-redux';
 
-export default class TopProducts extends Component {
+
+class TopProducts extends Component {
 
     state = {
         loading: true,
-        data: []
     };
     BASE_URL = 'https://upachar.com.np/'
 
     async componentDidMount() {
+
+        const { top5Products, dispatch } = this.props
+        dispatch({type:'FETCH_N_TOP_PRODUCTS', payload:5})
+
+
         const url_2 = `api/v1/pharmacy/hitcount/products?top=${this.props.limit}`
         const url = this.BASE_URL + url_2
         const url_response = await fetch(url)
         const response = await url_response.json()
-        this.setState({ data: response.data })
+        // this.setState({ data: response.data })
         this.setState({ loading: false })
+        // console.log('top-products data here is the ', response.data)
     }
 
-    render() {
+    render() 
+    {
+        console.log('hello this is top5products',this.props)
         return (
             <div className="TopProducts-product-list">
                 <Typography variant="h4">
@@ -38,7 +47,7 @@ export default class TopProducts extends Component {
                     </div>
                     :
                     <div className="TopProducts-cards">
-                        {this.state.data.map((item) => <DisplayCard key={uuidv4()}
+                        {this.props.top5Products.map((item) => <DisplayCard key={uuidv4()}
                             url={'/products/details/' + item.id}
                             title={item.name}
                             manufacturer={item.manufacturer}
@@ -56,3 +65,11 @@ export default class TopProducts extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        'top5Products':state.topProduct.top5Products
+    }
+}
+
+export default connect(mapStateToProps)(TopProducts)

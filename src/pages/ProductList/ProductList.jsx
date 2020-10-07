@@ -10,6 +10,8 @@ import MedicineCard from '../../components/card/MedicineCard/MedicineCard'
 import { Grid, Button, Box, Checkbox, Typography, Link, Slider } from '@material-ui/core'
 import Skeleton from '@material-ui/lab/Skeleton'
 import Pagination from '@material-ui/lab/Pagination';
+import { connect } from 'react-redux'
+
 
 class ProductList extends Component {
     constructor(props) {
@@ -168,7 +170,9 @@ class ProductList extends Component {
     }
 
 
-    render() {
+    render() 
+    {
+        console.log('props of productList',this.props)    
         return (
             <div>
                 <Navbar />
@@ -235,6 +239,15 @@ class ProductList extends Component {
             </div>
         )
     }
+
 }
 
-export default withRouter(ProductList)
+
+
+const mapStatetoProps = (state) => {
+    return {
+        products: state.project.products
+    }
+}
+
+export default connect(mapStatetoProps)(withRouter(ProductList))
